@@ -16,7 +16,7 @@ public class Geometry : MonoBehaviour
         public Vector3 calc = new Vector3();
         Vector3[] calcVariable = new Vector3[4];
 
-        Vector3 res = new Vector3(0.01f, 0, 0);
+        Vector3 res = new Vector3(0.0001f, 0, 0);
 
         
         public Quadrangle(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4)

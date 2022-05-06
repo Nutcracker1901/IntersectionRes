@@ -162,7 +162,22 @@ public class Chopper : MonoBehaviour
             subtracted.AddComponent<Chopper>().tree = subtracted;
 
             Destroy(cutter);
-            
+
+
+
+
+            /*List<Vector3> vvv = new List<Vector3>();
+            for(int i = 1; i < tree.GetComponent<MeshFilter>().mesh.vertices.Length; i++)
+            {
+                vvv.Add(tree.GetComponent<MeshFilter>().mesh.vertices[i-1]);
+                vvv.Add((tree.GetComponent<MeshFilter>().mesh.vertices[i] + tree.GetComponent<MeshFilter>().mesh.vertices[i - 1])/2.0f);
+            }
+            tree.GetComponent<MeshFilter>().mesh.vertices = vvv.ToArray();
+
+            tree.GetComponent<MeshFilter>().mesh.OptimizeReorderVertexBuffer();
+
+            tree.GetComponent<MeshFilter>().mesh.RecalculateBounds();
+            */
             PostCut(wound1, wound2, intscPoint1, intscPoint2);
         }
 
@@ -228,7 +243,7 @@ public class Chopper : MonoBehaviour
             result1 = CSG.Subtract(tree, lowerhalfTree);
 
 
-            //Destroy(tree);
+            Destroy(tree);
             Destroy(kutter);
 
             var upperhalfTree = new GameObject("upperhalfOfTree");
@@ -259,7 +274,7 @@ public class Chopper : MonoBehaviour
             lowerhalfTree.GetComponent<Rigidbody>().mass = volumeLower * treeDensity;
 
             float sqr = BreakingPhysics.Area(sqrtThing);
-            //Destroy(sqrtThing);
+            Destroy(sqrtThing);
             BreakingPhysics.setComponentFixedJoint(upperhalfTree, lowerhalfTree, sqr*1000);
 
             lowerhalfTree.AddComponent<Chopper>().tree = lowerhalfTree;
