@@ -274,6 +274,7 @@ public class Chopper : MonoBehaviour
         choppable.GetNewWound(wound1);
         choppable.GetNewWound(wound2);
         Debug.Log("nice");
+        Debug.Log("nice");
     }
 
     private void OnDrawGizmosSelected()
