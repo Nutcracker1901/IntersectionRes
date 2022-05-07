@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Parabox.CSG;
-using Valve.VR.InteractionSystem;
+//using Valve.VR.InteractionSystem;
 
 public class Chopper : MonoBehaviour
 {
@@ -152,10 +151,10 @@ public class Chopper : MonoBehaviour
             subtracted.AddComponent<MeshCollider>().convex = true;
             subtracted.AddComponent<Chopper>().tree = subtracted;
 
-            subtracted.AddComponent<Throwable>();
+            //subtracted.AddComponent<Throwable>();
 
             Destroy(cutter);
-
+            
             PostCut(wound1, wound2, intscPoint1, intscPoint2);
         }
 
