@@ -18,6 +18,7 @@ public class Chopper : MonoBehaviour
 
         public Wound(GameObject g)//wound должна быть представлена как GameObject с мэшом и такими ос€ми, чтобы вектор up перпендикул€рен плоскости, которую отражает мэш
         {
+            g.transform.position = new Vector3((float)System.Math.Round(g.transform.position.x, 2), (float)System.Math.Round(g.transform.position.y, 2), (float)System.Math.Round(g.transform.position.z, 2));
             wound = g;
             mesh = g.GetComponent<MeshCollider>().sharedMesh;
             quad = new Geometry.Quadrangle(g.transform.TransformPoint(mesh.vertices[0]), g.transform.TransformPoint(mesh.vertices[1]), g.transform.TransformPoint(mesh.vertices[2]), g.transform.TransformPoint(mesh.vertices[3]));

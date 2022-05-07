@@ -126,6 +126,9 @@ public class Geometry : MonoBehaviour
             {
                 Debug.Log(calc); Debug.Log("They do");
                 intsc = true;
+                calc.x = (float)System.Math.Round(calc.x, 2);
+                calc.y = (float)System.Math.Round(calc.y, 2);
+                calc.z = (float)System.Math.Round(calc.z, 2);
                 return calc;
             }
             else
