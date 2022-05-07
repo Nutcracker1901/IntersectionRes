@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Parabox.CSG;
 
-
 public class Chopper : MonoBehaviour
 {
     public GameObject tree;
     public GameObject wound1, wound2;
+
+    static float treeDensity = 0.68f;
 
     class Wound
     {
@@ -152,21 +153,6 @@ public class Chopper : MonoBehaviour
 
             Destroy(cutter);
 
-
-
-
-            /*List<Vector3> vvv = new List<Vector3>();
-            for(int i = 1; i < tree.GetComponent<MeshFilter>().mesh.vertices.Length; i++)
-            {
-                vvv.Add(tree.GetComponent<MeshFilter>().mesh.vertices[i-1]);
-                vvv.Add((tree.GetComponent<MeshFilter>().mesh.vertices[i] + tree.GetComponent<MeshFilter>().mesh.vertices[i - 1])/2.0f);
-            }
-            tree.GetComponent<MeshFilter>().mesh.vertices = vvv.ToArray();
-
-            tree.GetComponent<MeshFilter>().mesh.OptimizeReorderVertexBuffer();
-
-            tree.GetComponent<MeshFilter>().mesh.RecalculateBounds();
-            */
             PostCut(wound1, wound2, intscPoint1, intscPoint2);
         }
 
@@ -256,7 +242,6 @@ public class Chopper : MonoBehaviour
             lowerhalfTree.AddComponent<Rigidbody>();
             lowerhalfTree.AddComponent<MeshCollider>().convex = true;
 
-            float treeDensity = 0.68f;
             float volumeUpper = BreakingPhysics.VolumeOfMesh(upperhalfTree);
             float volumeLower = BreakingPhysics.VolumeOfMesh(lowerhalfTree);
             upperhalfTree.GetComponent<Rigidbody>().mass = volumeUpper * treeDensity;
@@ -264,7 +249,7 @@ public class Chopper : MonoBehaviour
 
             float sqr = BreakingPhysics.Area(sqrtThing);
             Destroy(sqrtThing);
-            BreakingPhysics.setComponentFixedJoint(upperhalfTree, lowerhalfTree, sqr*1000);
+            BreakingPhysics.setComponentFixedJoint(upperhalfTree, lowerhalfTree, sqr*300);
 
             lowerhalfTree.AddComponent<Chopper>().tree = lowerhalfTree;
             upperhalfTree.AddComponent<Chopper>().tree = upperhalfTree;
