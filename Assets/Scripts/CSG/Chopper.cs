@@ -48,8 +48,7 @@ public class Chopper : MonoBehaviour
                {
 
                     Vector3 intscPoint2 = wound.quad.Intersection(newWound.quad, false, ref intsc);
-
-                    Cut(wound, newWound, intscPoint1, intscPoint2);
+                    if (intsc) Cut(newWound, wound, intscPoint1, intscPoint2);
                }
                else
                {
@@ -58,8 +57,7 @@ public class Chopper : MonoBehaviour
                     {
 
                         Vector3 intscPoint2 = newWound.quad.Intersection(wound.quad, false, ref intsc);
-
-                        Cut(newWound, wound, intscPoint1, intscPoint2);
+                        if (intsc) Cut(newWound, wound, intscPoint1, intscPoint2);
                     }
                }
             }
@@ -68,9 +66,16 @@ public class Chopper : MonoBehaviour
 
         void Cut(Wound wound1, Wound wound2, Vector3 intscPoint1, Vector3 intscPoint2)
         {
+            
+            if (Vector3.Distance(wound1.quad.points[0], intscPoint1) < Vector3.Distance(wound1.quad.points[0], intscPoint2))
+            {
+                Vector3 temp = intscPoint1;
+                intscPoint1 = intscPoint2;
+                intscPoint2 = temp;
+            }
+            
             Vector3[] resVertices = new Vector3[6]
         {
-            //wound1.quad.points[0], wound1.quad.points[1], wound2.quad.points[0], wound2.quad.points[2], intscPoint1, intscPoint2
             wound1.quad.points[0], wound1.quad.points[1], wound2.quad.points[0], wound2.quad.points[1], intscPoint1, intscPoint2
         };
             Mesh resMesh = new Mesh();
@@ -84,22 +89,6 @@ public class Chopper : MonoBehaviour
             {
                 resTriangles = new int[24]
                 {
-                    /*0, 5, 3,
-                    3, 5, 4,
-                    4, 2, 3,
-                    3, 2, 1,
-                    1, 2, 4,
-                    4, 5, 0,
-                    0, 1, 4,
-                    1, 0, 3*/
-                    /*5,2,0,
-                    2,3,0,
-                    3,1,0,
-                    3,4,1,
-                    2,5,3,
-                    5,4,3,
-                    0,1,4,
-                    0,4,5*/
                     trianglesIndex[5],trianglesIndex[2],trianglesIndex[0],
                     trianglesIndex[2],trianglesIndex[3],trianglesIndex[0],
                     trianglesIndex[3],trianglesIndex[1],trianglesIndex[0],
