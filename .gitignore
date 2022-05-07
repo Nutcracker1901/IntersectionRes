@@ -10,6 +10,24 @@
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 
+
+/[Aa]ssets/SteamVR*
+/[Aa]ssets/SteamVR_Resources*
+/[Aa]ssets/StreamingAssets*
+/[Aa]ssets/XR*
+
+/[Aa]ssets/SteamVR.meta*
+/[Aa]ssets/SteamVR_Resources.meta*
+/[Aa]ssets/StreamingAssets.meta*
+/[Aa]ssets/XR.meta*
+
+/[Ss]teamVr*
+/[Ss]teamVR_Editor*
+/[Ss]teamVR_Input_Editor*
+/[Ss]teamVR_Windows_EditorHelper*
+/[Pp]rojectSettings/XRPackageSettings.asset
+
+
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
 /[Mm]emoryCaptures/

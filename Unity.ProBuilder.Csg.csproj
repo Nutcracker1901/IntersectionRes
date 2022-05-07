@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{FEC9A3A5-68E1-ECBE-6824-D7D86944A936}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -53,19 +54,17 @@
     <UnityVersion>2020.3.22f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\CSG\ButtonHandler.cs" />
+    <Compile Include="Assets\Scripts\CSG\BreakingPhysics.cs" />
     <Compile Include="Assets\Scripts\CSG\Classes\VertexAttributes.cs" />
     <Compile Include="Assets\Scripts\CSG\Classes\Polygon.cs" />
     <Compile Include="Assets\Scripts\CSG\Classes\Model.cs" />
     <Compile Include="Assets\Scripts\CSG\CSG.cs" />
     <Compile Include="Assets\Scripts\CSG\Geometry.cs" />
     <Compile Include="Assets\Scripts\CSG\Chopper.cs" />
-    <Compile Include="Assets\Scripts\CSG\substr.cs" />
     <Compile Include="Assets\Scripts\CSG\Classes\Vertex.cs" />
     <Compile Include="Assets\Scripts\CSG\Classes\Node.cs" />
     <Compile Include="Assets\Scripts\CSG\Classes\VertexUtility.cs" />
     <Compile Include="Assets\Scripts\CSG\Classes\Plane.cs" />
-    <Compile Include="Assets\Scripts\CSG\BreakingPhysics.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\CSG\Parabox.CSG.asmdef" />
@@ -676,6 +675,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="SteamVR.csproj">
+      <Project>{9F64A1A1-CC51-A427-A5C1-2FF32BB61A3E}</Project>
+      <Name>SteamVR</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

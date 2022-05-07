@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Parabox.CSG;
+using Valve.VR.InteractionSystem;
 
 public class Chopper : MonoBehaviour
 {
@@ -150,6 +151,8 @@ public class Chopper : MonoBehaviour
             subtracted.AddComponent<Rigidbody>();
             subtracted.AddComponent<MeshCollider>().convex = true;
             subtracted.AddComponent<Chopper>().tree = subtracted;
+
+            subtracted.AddComponent<Throwable>();
 
             Destroy(cutter);
 
