@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -53,10 +53,13 @@
     <UnityVersion>2020.3.23f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Assets\Scripts\BreakingPhysics.cs" />
+    <Compile Include="Assets\Scripts\Test.cs" />
     <Compile Include="Assets\Scripts\Geometry.cs" />
     <Compile Include="Assets\Scripts\Chopper.cs" />
-    <Compile Include="Assets\Scripts\Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -643,13 +646,17 @@
       <Project>{902230CB-4B77-8D47-6E84-E65C1E6B6255}</Project>
       <Name>Unity.VisualStudio.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.XR.Management.Editor.csproj">
-      <Project>{DCC25F19-9E4C-35B1-5761-D27C820B5AAC}</Project>
-      <Name>Unity.XR.Management.Editor</Name>
+    <ProjectReference Include="Unity.Timeline.Editor.csproj">
+      <Project>{A03C5423-3A3E-2C45-F6DC-28224D2AD042}</Project>
+      <Name>Unity.Timeline.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Timeline.csproj">
       <Project>{47DEAFBF-7D68-67C6-0F19-86B652FF44B5}</Project>
       <Name>Unity.Timeline</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.ProBuilder.Csg.csproj">
+      <Project>{1F30116F-3712-8FDC-B1CA-251B6574B355}</Project>
+      <Name>Unity.ProBuilder.Csg</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.csproj">
       <Project>{4A0BA439-2091-9A7E-7D04-86FE89F51233}</Project>
@@ -658,10 +665,6 @@
     <ProjectReference Include="Parabox.CSG.Demo.csproj">
       <Project>{98BD7AF5-FD0D-6C64-2455-9743B7428CB9}</Project>
       <Name>Parabox.CSG.Demo</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Subsystem.Registration.csproj">
-      <Project>{3A7EBD54-AD3C-9E7C-4514-0B221F73BDD3}</Project>
-      <Name>Unity.Subsystem.Registration</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{FE7D4096-95D5-6647-08DD-94A742E0CA39}</Project>
@@ -678,38 +681,6 @@
     <ProjectReference Include="UnityEngine.UI.csproj">
       <Project>{6A426445-F67A-D55B-2D21-3EC65A663F1B}</Project>
       <Name>UnityEngine.UI</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityEngine.SpatialTracking.csproj">
-      <Project>{5DAE883E-8711-FE75-4CC8-F538E7C4BA4E}</Project>
-      <Name>UnityEngine.SpatialTracking</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.XR.MockHMD.Editor.csproj">
-      <Project>{5A4BE081-B3E9-195E-601F-4F0CA3AEFF48}</Project>
-      <Name>Unity.XR.MockHMD.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.XR.MockHMD.csproj">
-      <Project>{51A7B7CA-D887-4063-08FA-76BDDF752C5E}</Project>
-      <Name>Unity.XR.MockHMD</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityEngine.XR.LegacyInputHelpers.csproj">
-      <Project>{003CC283-B072-89AC-1874-9862B0402A33}</Project>
-      <Name>UnityEngine.XR.LegacyInputHelpers</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Timeline.Editor.csproj">
-      <Project>{A03C5423-3A3E-2C45-F6DC-28224D2AD042}</Project>
-      <Name>Unity.Timeline.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityEditor.XR.LegacyInputHelpers.csproj">
-      <Project>{608BA77A-14B3-37DB-4F00-0E7FA43D4A65}</Project>
-      <Name>UnityEditor.XR.LegacyInputHelpers</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.XR.Management.csproj">
-      <Project>{016521B8-BF0B-FD7B-3B70-8FB73CF85AB2}</Project>
-      <Name>Unity.XR.Management</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityEditor.SpatialTracking.csproj">
-      <Project>{2CC85CC7-0EEB-FA73-DEAA-D75C10C4BD41}</Project>
-      <Name>UnityEditor.SpatialTracking</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

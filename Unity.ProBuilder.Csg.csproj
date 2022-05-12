@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -53,17 +53,20 @@
     <UnityVersion>2020.3.23f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\CSG\Classes\VertexAttributes.cs" />
-    <Compile Include="Assets\CSG\Classes\Polygon.cs" />
-    <Compile Include="Assets\CSG\Classes\Model.cs" />
-    <Compile Include="Assets\CSG\CSG.cs" />
-    <Compile Include="Assets\CSG\Classes\Vertex.cs" />
-    <Compile Include="Assets\CSG\Classes\Node.cs" />
-    <Compile Include="Assets\CSG\Classes\VertexUtility.cs" />
-    <Compile Include="Assets\CSG\Classes\Plane.cs" />
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\CSG\Parabox.CSG.asmdef" />
+    <Compile Include="Packages\co.parabox.csg\CSG\Classes\VertexAttributes.cs" />
+    <Compile Include="Packages\co.parabox.csg\CSG\Classes\Polygon.cs" />
+    <Compile Include="Packages\co.parabox.csg\CSG\Classes\Model.cs" />
+    <Compile Include="Packages\co.parabox.csg\CSG\CSG.cs" />
+    <Compile Include="Packages\co.parabox.csg\CSG\Classes\Vertex.cs" />
+    <Compile Include="Packages\co.parabox.csg\CSG\Classes\Node.cs" />
+    <Compile Include="Packages\co.parabox.csg\CSG\Classes\VertexUtility.cs" />
+    <Compile Include="Packages\co.parabox.csg\CSG\Classes\Plane.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Packages\co.parabox.csg\CSG\Parabox.CSG.asmdef" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

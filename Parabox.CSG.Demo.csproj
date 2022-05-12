@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -53,11 +53,14 @@
     <UnityVersion>2020.3.23f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="D:\pb_CSG-master\Samples\Demo Assets\Scripts\CameraControls.cs" />
-    <Compile Include="D:\pb_CSG-master\Samples\Demo Assets\Scripts\Demo.cs" />
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="D:\pb_CSG-master\Samples\Demo Assets\Scripts\Parabox.CSG.Demo.asmdef" />
+    <Compile Include="Packages\co.parabox.csg\Samples\Demo Assets\Scripts\CameraControls.cs" />
+    <Compile Include="Packages\co.parabox.csg\Samples\Demo Assets\Scripts\Demo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Packages\co.parabox.csg\Samples\Demo Assets\Scripts\Parabox.CSG.Demo.asmdef" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
