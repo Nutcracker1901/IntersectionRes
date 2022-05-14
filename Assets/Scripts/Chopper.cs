@@ -276,7 +276,7 @@ public class Chopper : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        foreach(var verticle in tree.GetComponent<MeshFilter>().mesh.vertices)
+        foreach(var verticle in tree.GetComponent<MeshFilter>().sharedMesh.vertices)
         {
             Gizmos.DrawCube(tree.transform.TransformPoint(verticle), new Vector3(0.05f, 0.05f, 0.05f));
         }

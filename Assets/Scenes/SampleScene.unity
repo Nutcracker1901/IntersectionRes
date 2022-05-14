@@ -464,7 +464,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 759432881}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1445223832}
+        m_TargetAssemblyTypeName: Test, Assembly-CSharp
+        m_MethodName: startTest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &759432881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -826,7 +838,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1304465657}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1445223832}
+        m_TargetAssemblyTypeName: Test, Assembly-CSharp
+        m_MethodName: resetObjects
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1304465657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -894,6 +918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 301d74480073a0f4da60562d8bf8ec7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tPrefab: {fileID: 4117979727605213466, guid: 35bc8c55bb3db0f478be9c5f0925b97d, type: 3}
 --- !u!4 &1445223833
 Transform:
   m_ObjectHideFlags: 0
