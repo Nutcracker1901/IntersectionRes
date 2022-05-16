@@ -83,6 +83,7 @@ public class Geometry : MonoBehaviour
         {
             bool flag = true;
             calcVariable[3].x = Mathf.Abs(calcVariable[i].y - calcVariable[i].z) / 10000;
+            int count = 0;
 
             if (direct)
             {
@@ -95,7 +96,8 @@ public class Geometry : MonoBehaviour
             calcVariable[j].x = (-plane[k].x * calcVariable[k].x - plane[i].x * calcVariable[i].x - plane[3].x) / plane[j].x;
 
             do
-            {                   
+            {
+                count++;
                 calcVariable[i].x += calcVariable[3].x;               
                 calcVariable[k].x = (
                     (q2.plane[j].x / plane[j].x) *
@@ -115,7 +117,7 @@ public class Geometry : MonoBehaviour
                     q2.plane[3].x
                     );
                 if ((res.y < res.x) && (q2.InBetween(calc))) flag = false;
-            } while (InBetween(calc) && flag);
+            } while (InBetween(calc) && flag && (count<10000));
             
             calc.x = calcVariable[0].x;
             calc.y = calcVariable[1].x;
