@@ -186,8 +186,11 @@ public class Chopper : MonoBehaviour
             cube.transform.right = Vector3.Cross(rhsPos, lhsPos);
             cube.transform.forward = (intscPoint1 - V).normalized;
 
-            Model result1 = CSG.Subtract(tree, kutter);
+            //Model result1 = CSG.Subtract(tree, kutter);
             Model result2 = CSG.Intersect(tree, cube);
+            cube.transform.localScale = new Vector3(5f, 5f, 5f);
+            cube.transform.position += new Vector3(0, -2.5f, 0);
+            Model result1 = CSG.Subtract(tree, cube);
 
             var sqrtThing = new GameObject("PeaceOfTree");
             sqrtThing.AddComponent<MeshFilter>().mesh = result2.mesh;
@@ -204,12 +207,12 @@ public class Chopper : MonoBehaviour
             sqrtThing.transform.position = cube.transform.position;
             Destroy(cube);
 
-            if (sqrtThing.GetComponent<MeshFilter>().mesh.subMeshCount == 2)
+            /*if (sqrtThing.GetComponent<MeshFilter>().mesh.subMeshCount == 2)
             {
                 Destroy(kutter);
                 Destroy(sqrtThing);
                 return;
-            }
+            }*/
 
             var lowerhalfTree = new GameObject("lowerhalfOfTree");
             lowerhalfTree.AddComponent<MeshFilter>().mesh = result1.mesh;
