@@ -37,6 +37,7 @@ public class Chopper : MonoBehaviour
         public Chopable(GameObject t)
         {
             tree = t;
+            if (tree.GetComponent<MeshFilter>().sharedMesh == null) throw new System.Exception("gburh no shared mesh");
         }
         public void GetNewWound(GameObject g)
         {
@@ -148,13 +149,13 @@ public class Chopper : MonoBehaviour
             subtracted.transform.position += tree.transform.position;
 
             subtracted.GetComponent<Transform>().localScale = new Vector3(0.9f, 0.9f, 0.9f);
-            subtracted.AddComponent<Rigidbody>();
+            //subtracted.AddComponent<Rigidbody>();
             subtracted.AddComponent<MeshCollider>().convex = true;
             subtracted.AddComponent<Chopper>().tree = subtracted;
 
             //subtracted.AddComponent<Throwable>();
 
-            Destroy(cutter);
+            //Destroy(cutter);
             
             PostCut(wound1, wound2, intscPoint1, intscPoint2);
         }
@@ -240,19 +241,19 @@ public class Chopper : MonoBehaviour
             
             tree.transform.position = Vector3.zero;
 
-            upperhalfTree.AddComponent<Rigidbody>();
+            //upperhalfTree.AddComponent<Rigidbody>();
             upperhalfTree.AddComponent<MeshCollider>().convex = true;
-            lowerhalfTree.AddComponent<Rigidbody>();
+            //lowerhalfTree.AddComponent<Rigidbody>();
             lowerhalfTree.AddComponent<MeshCollider>().convex = true;
 
-            float volumeUpper = BreakingPhysics.VolumeOfMesh(upperhalfTree);
-            float volumeLower = BreakingPhysics.VolumeOfMesh(lowerhalfTree);
-            upperhalfTree.GetComponent<Rigidbody>().mass = volumeUpper * treeDensity;
-            lowerhalfTree.GetComponent<Rigidbody>().mass = volumeLower * treeDensity;
+            //float volumeUpper = BreakingPhysics.VolumeOfMesh(upperhalfTree);
+            //float volumeLower = BreakingPhysics.VolumeOfMesh(lowerhalfTree);
+            //upperhalfTree.GetComponent<Rigidbody>().mass = volumeUpper * treeDensity;
+            //lowerhalfTree.GetComponent<Rigidbody>().mass = volumeLower * treeDensity;
 
-            float sqr = BreakingPhysics.Area(sqrtThing);
-            Destroy(sqrtThing);
-            BreakingPhysics.setComponentFixedJoint(upperhalfTree, lowerhalfTree, sqr*300);
+            //float sqr = BreakingPhysics.Area(sqrtThing);
+            //Destroy(sqrtThing);
+            //BreakingPhysics.setComponentFixedJoint(upperhalfTree, lowerhalfTree, sqr*300);
 
             lowerhalfTree.AddComponent<Chopper>().tree = lowerhalfTree;
             upperhalfTree.AddComponent<Chopper>().tree = upperhalfTree;

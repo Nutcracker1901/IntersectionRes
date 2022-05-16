@@ -6,7 +6,7 @@ public class Test : MonoBehaviour
 {
     public GameObject tPrefab;
     Transform Wound1, Wound2;
-    bool stopFlag = false;
+    bool stopFlag = true;
     float timer = 5f;
     // Start is called before the first frame update
     void Start()
@@ -36,43 +36,30 @@ public class Test : MonoBehaviour
     void UpdateWrapper()
     {
         resetObjects(Wound1, Wound2);
-        tPrefab.GetComponentInChildren<Chopper>().startTest();
-        Wound1.up += new Vector3(0, 0.01f);
-        Wound2.up += new Vector3(0, 0.01f);
+        GetComponentInChildren<Chopper>().startTest();
+        Wound1.transform.position += Vector3.up * 0.1f;
+        Wound2.transform.position += Vector3.up * 0.1f;
     }
 
     public void startTest()
     {
         stopFlag = !stopFlag;
     }
-
-    public void resetObjects()
-    {
-        if (transform.childCount < 1)
-        {
-            GameObject.Instantiate(tPrefab, transform);
-        } else
-        {
-            Destroy(transform.GetChild(0).gameObject);
-            GameObject.Instantiate(tPrefab, transform);
-        }
-    }
-
     public void resetObjects(Transform transform1, Transform transform2)
     {
-        tPrefab.transform.GetChild(1).position = transform1.position;
-        tPrefab.transform.GetChild(1).rotation = transform1.rotation;
-        tPrefab.transform.GetChild(2).position = transform2.position;
-        tPrefab.transform.GetChild(2).rotation = transform2.rotation;
-
+        GameObject buff;
         if (transform.childCount < 1)
         {
-            GameObject.Instantiate(tPrefab, transform);
+            buff = GameObject.Instantiate(tPrefab, transform);
         }
         else
         {
             Destroy(transform.GetChild(0).gameObject);
-            GameObject.Instantiate(tPrefab, transform);
+            buff = GameObject.Instantiate(tPrefab, transform);
         }
+        buff.transform.GetChild(1).position = transform1.position;
+        buff.transform.GetChild(1).rotation = transform1.rotation;
+        buff.transform.GetChild(2).position = transform2.position;
+        buff.transform.GetChild(2).rotation = transform2.rotation;
     }
 }
