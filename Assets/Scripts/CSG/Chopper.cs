@@ -75,7 +75,8 @@ public class Chopper : MonoBehaviour
                 intscPoint1 = intscPoint2;
                 intscPoint2 = temp;
             }
-            
+
+            Vector3 middle = (intscPoint1 + intscPoint2) / 2;
             Vector3[] resVertices = new Vector3[6]
         {
             wound1.quad.points[0], wound1.quad.points[1], wound2.quad.points[0], wound2.quad.points[1], intscPoint1, intscPoint2
@@ -124,6 +125,7 @@ public class Chopper : MonoBehaviour
 
             tree.GetComponent<MeshFilter>().mesh = result1.mesh;
             tree.GetComponent<MeshRenderer>().materials = result1.materials.ToArray();
+            tree.GetComponent<Transform>().localScale = Vector3.one;
 
             Vector3[] v = tree.GetComponent<MeshFilter>().mesh.vertices;
             for (int i = 0; i < tree.GetComponent<MeshFilter>().mesh.vertices.Length; i++)
@@ -140,12 +142,12 @@ public class Chopper : MonoBehaviour
 
             v = subtracted.GetComponent<MeshFilter>().mesh.vertices;
             for (int i = 0; i < subtracted.GetComponent<MeshFilter>().mesh.vertices.Length; i++)
-                v[i] -= tree.transform.position;
+                v[i] -= middle;//tree.transform.position;
 
             subtracted.GetComponent<MeshFilter>().mesh.vertices = v;
             subtracted.GetComponent<MeshFilter>().mesh.RecalculateBounds();
             subtracted.GetComponent<MeshFilter>().mesh.RecalculateNormals();
-            subtracted.transform.position += tree.transform.position;
+            subtracted.transform.position += middle;//tree.transform.position;
 
             subtracted.GetComponent<Transform>().localScale = new Vector3(0.9f, 0.9f, 0.9f);
             subtracted.AddComponent<Rigidbody>();
@@ -202,11 +204,16 @@ public class Chopper : MonoBehaviour
             sqrtThing.transform.position = cube.transform.position;
             Destroy(cube);
 
+            if (sqrtThing.GetComponent<MeshFilter>().mesh.subMeshCount == 2)
+            {
+                Destroy(kutter);
+                Destroy(sqrtThing);
+                return;
+            }
+
             var lowerhalfTree = new GameObject("lowerhalfOfTree");
             lowerhalfTree.AddComponent<MeshFilter>().mesh = result1.mesh;
             lowerhalfTree.AddComponent<MeshRenderer>().materials = result1.materials.ToArray();
-
-            //result2 = CSG.Union(lowerhalfTree, sqrtThing);
 
             v = lowerhalfTree.GetComponent<MeshFilter>().mesh.vertices;
             for (int i = 0; i < lowerhalfTree.GetComponent<MeshFilter>().mesh.vertices.Length; i++)
