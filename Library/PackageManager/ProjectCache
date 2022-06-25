@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637882775133957495
-    m_Hash: 4056022911
+      ticks: 637882900534016009
+    m_Hash: 1794069591
   m_LockFileStatus:
     m_FilePath: D:/UnityStuff/Lessons/IntersectionRes/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637882775133997397
-    m_Hash: 4138661032
+      ticks: 637882900558705470
+    m_Hash: 1217457628
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:

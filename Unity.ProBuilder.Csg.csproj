@@ -8,8 +8,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{FEC9A3A5-68E1-ECBE-6824-D7D86944A936}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -675,10 +674,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="SteamVR.csproj">
-      <Project>{9F64A1A1-CC51-A427-A5C1-2FF32BB61A3E}</Project>
-      <Name>SteamVR</Name>
-    </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{C9E93422-C78B-0FD3-3287-5DBBBF8CAE8A}</Project>
       <Name>UnityEditor.UI</Name>
